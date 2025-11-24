@@ -8,7 +8,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: "Comic Sans MS", "Comic Neue", Arial;
-    background-image: url('../img/aero.png'); /* subir un nivel y luego entrar a img */
+    background-image: url('https://raw.githubusercontent.com/RiceShadow117/pagweb/refs/heads/main/img/aero.png'); /* subir un nivel y luego entrar a img */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -131,4 +131,5 @@ footer {
         height: 250px;
     }
 }
+
 
