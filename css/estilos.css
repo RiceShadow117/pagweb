@@ -8,20 +8,66 @@ body {
     display: flex;
     flex-direction: column;
     font-family: "Comic Sans MS", "Comic Neue", Arial;
-    background-image: url('https://raw.githubusercontent.com/RiceShadow117/pagweb/refs/heads/main/img/aero.png'); /* subir un nivel y luego entrar a img */
+    background-image: url('https://raw.githubusercontent.com/RiceShadow117/pagweb/refs/heads/main/img/aero.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
+    position: relative; /* necesario para overlay */
+}
+
+/* Overlay semitransparente */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+    z-index: -1;
 }
 
 /* --------------------- Header --------------------- */
 header {
-    background-color: rgba(179, 229, 252, 0.9); /* celeste claro semi-transparente */
+    background-color: rgba(179, 229, 252, 0.9);
     color: #000;
     text-align: center;
     padding: 22px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* --------------------- Título Proyecto --------------------- */
+#titulo-proyecto {
+    max-width: 700px;
+    margin: 30px auto;
+    background: rgba(255, 255, 255, 0.25); /* efecto glass */
+    padding: 25px 30px;
+    border-radius: 22px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.3);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#titulo-proyecto:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 45px rgba(0,0,0,0.35);
+}
+
+#titulo-proyecto h1 {
+    font-size: 2.2em;
+    color: #0288d1;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+#titulo-proyecto p {
+    font-size: 1.1em;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
 }
 
 /* --------------------- Main --------------------- */
@@ -38,60 +84,81 @@ main {
     margin-top: 25px;
 }
 
+/* --------------------- Tarjetas Materiales --------------------- */
 .tarjeta {
-    background-color: rgba(255, 255, 255, 0.85); /* semi-transparente */
+    background: rgba(255, 255, 255, 0.2); /* efecto glass */
     border-radius: 16px;
     margin: 12px;
     padding: 18px;
     width: 160px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.25);
     cursor: pointer;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .tarjeta:hover {
-    transform: translateY(-6px) scale(1.03);
-    box-shadow: 0 10px 24px rgba(0,0,0,0.30);
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.35);
 }
 
 .tarjeta img {
     width: 85px;
     height: 85px;
     margin-bottom: 12px;
+    border-radius: 12px;
+    transition: transform 0.3s;
+}
+
+.tarjeta:hover img {
+    transform: scale(1.05);
 }
 
 /* --------------------- Ficha Material --------------------- */
 #pantalla-material {
     max-width: 650px;
     margin: 25px auto;
-    background-color: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.2); /* efecto glass */
     padding: 25px;
-    border-radius: 18px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-    backdrop-filter: blur(4px);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#pantalla-material:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.35);
 }
 
 #pantalla-material iframe {
     width: 100%;
     height: 300px;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
+/* --------------------- Botón Volver --------------------- */
 #pantalla-material button {
     margin-top: 15px;
-    padding: 10px 18px;
-    background-color: #B3E5FC;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #4fc3f7, #0288d1);
+    color: white;
+    font-weight: bold;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: background-color 0.25s, transform 0.15s;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
 }
 
 #pantalla-material button:hover {
-    background-color: #81D4FA;
-    transform: scale(1.05);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    background: linear-gradient(135deg, #0288d1, #4fc3f7);
 }
 
 /* --------------------- Footer --------------------- */
@@ -100,7 +167,7 @@ footer {
     padding: 15px;
     background-color: rgba(179, 229, 252, 0.9);
     color: #000;
-    font-family: Arial, sans-serif; /* Footer con tipografía normal */
+    font-family: Arial, sans-serif;
 }
 
 /* --------------------- Responsive --------------------- */
@@ -123,6 +190,10 @@ footer {
     header, footer {
         padding: 15px;
     }
+    #titulo-proyecto {
+        padding: 20px;
+        margin: 20px;
+    }
     #pantalla-material {
         padding: 15px;
         margin: 15px;
@@ -130,6 +201,11 @@ footer {
     #pantalla-material iframe {
         height: 250px;
     }
+    body {
+        background-position: top center;
+    }
 }
+
+
 
 
